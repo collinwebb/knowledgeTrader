@@ -17,6 +17,7 @@ var gulp =        require('gulp'),
     browser =     require('browser-sync'),
     run =         require('run-sequence'),
     del =         require('del'),
+    mocha =       require('gulp-mocha'),
     isProd =      gutil.env.type === 'prod',
 
     paths = {
@@ -29,7 +30,8 @@ var gulp =        require('gulp'),
       destination: './public',
       coffeesrc: './source/**/*.coffee',
       temp: './temp',
-      tempfiles: ['./temp/*.css', './temp/*.js']
+      tempfiles: ['./temp/*.css', './temp/*.js'],
+      test: ['test/**/*.js']
     };
 
 
@@ -62,11 +64,19 @@ gulp.task('clean:temp', function(cb){
   ], cb);
 });
 
+//creates auto-test
+gulp.task('nyan', function () {
+    return gulp.src(paths.test, {read: false})
+    .pipe(mocha({reporter: 'nyan'}));
+});
 
 //set which files to watch for changes
 gulp.task('watch', function(){
-  return watch(paths.filesrc, function(){
+  watch(paths.filesrc, function(){
     gulp.start('refresh');
+  });
+  watch(paths.test, function(){
+    gulp.start('nyan');
   });
 });
 

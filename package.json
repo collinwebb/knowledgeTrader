@@ -39,6 +39,7 @@
     "gulp-watch": "4.2.4",
     "run-sequence": "1.1.1",
     "mocha": "latest",
-    "chai": "latest"
+    "chai": "latest",
+    "gulp-mocha": "latest"
   }
 }

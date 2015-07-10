@@ -9,4 +9,10 @@ describe('bar', function() {
     foo.should.have.length(3);
     beverages.should.have.property('tea').with.length(3);
   });
-});  
+  it('not be as not specified', function () {
+    foo.should.not.be.a('array');
+    foo.should.not.equal('foo');
+    foo.should.not.have.length(4);
+    beverages.should.not.have.property('apple');
+  });
+});
