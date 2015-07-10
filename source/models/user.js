@@ -1,19 +1,17 @@
 'use strict';
 
-//replace FBService with Passport.
-
 angular.module('KnowledgeTrader')
-.factory('User', function(FBService){
+.factory('User', function(Passport){
   function User(){}
 
   User.register = function(user){
-    return FBService.afAuth.$createUser(user);
+    return Passport.auth.$createUser(user);
   };
   User.login = function(user){
-    return FBService.afAuth.$authWithPassword(user);
+    return Passport.auth.$authWithPassword(user);
   };
   User.oauth = function(provider){
-    return FBService.afAuth.$authWithOAuthPopup(provider);
+    return Passport.auth.$authWithOAuthPopup(provider);
   };
 
   return User;

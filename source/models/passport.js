@@ -27,3 +27,9 @@
 //     }
 //   };
 // });
+
+
+//make
+// this.afAuth = this.auth
+// this.fbRef = this.ref
+// FBService = Passport

@@ -37,14 +37,14 @@ var gulp =        require('gulp'),
 
 //build tasks
 gulp.task('default', function(cb){
-  run('build', 'serve', 'watch', cb);
+  run('build', 'serve', 'nyan', 'watch', cb);
 });
 gulp.task('build', ['clean:public', 'clean:temp'], function(cb){
   run('bower', 'jade', 'build-js', 'build-css', 'copy', cb);
 });
 //refresh tasks
 gulp.task('refresh', function(cb){
-  return run('build', 'reload', cb);
+  return run('build', 'reload', 'nyan', cb);
 });
 gulp.task('serve', function(){
   browser.init({server: paths.destination});
