@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('KnowledgeTrader', ['firebase', 'ui.router']);
+angular.module('KnowledgeTrader', ['ui.router']);
